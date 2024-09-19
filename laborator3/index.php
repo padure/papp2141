@@ -1,3 +1,7 @@
+<?php
+    $imagini = scandir('public');
+    $imagini = array_diff($imagini, [".", ".."]);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,39 @@
             </div>
             <button type="submit" class="btn btn-dark">Save</button>
         </form>
+    </div>
+    <div class="container py-3">
+        <h4 class="my-3">Lista imaginilor din sistem</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Imagine</th>
+                    <th>Optiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($imagini as $imagine): ?>
+                    <tr>
+                        <td>
+                            <img src="public/<?=$imagine;?>" alt="Imagine" class="col-1">
+                        </td>
+                        <td class="d-flex flex-column">
+                            <a  href="delete.php?file=<?=$imagine?>"
+                                class="text-danger"
+                                onclick="return confirm('Esti sigur?');">
+                                Delete</a>
+                            <a  href="public/<?=$imagine?>"
+                                class="text-info"
+                                target="_blanck">
+                                Afisare</a>
+                            <a  href="download.php?file=<?=$imagine?>"
+                                class="text-success">
+                                Download</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
