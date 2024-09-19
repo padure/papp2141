@@ -10,6 +10,7 @@
             $file_tmp_name = $_FILES['file']['tmp_name'];
             $file_size = $_FILES['file']['size'];
             $file_error = $_FILES['file']['error'];
+            $errors[] =  $file_error;
             //Extenisa fisierului
             $file_ext = pathinfo(basename($file_name), PATHINFO_EXTENSION);
             //Nume unic al fisierului pentru viitor 
