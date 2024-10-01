@@ -25,7 +25,30 @@
             </div>
         </div>
     </nav>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-4">
+                <button class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#userForm">
+                    Adauga
+                </button>
+            </div>
+        </div>
+        <div class="row"></div>
+        <!-- Modal -->
+        <div class="modal fade" id="userForm" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Adauga un utilizator</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
