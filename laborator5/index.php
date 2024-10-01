@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -36,7 +36,17 @@
                 </button>
             </div>
         </div>
-        <div class="row"></div>
+        <div class="row">
+            <?php if (isset($_SESSION['errors'])): ?>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <?php foreach ($_SESSION['errors'] as $error): ?>
+                            <li><?= $error ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="userForm" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg">
