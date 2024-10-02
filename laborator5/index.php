@@ -1,12 +1,19 @@
 <?php
-    session_start();
-    $file = "users.json";
-    $users = [];
-    $i = 0;
-    if(file_exists($file)){
-        $users = file_get_contents($file);
-        $users = json_decode($users, true);
+session_start();
+$file = "users.json";
+$users = [];
+$i = 0;
+if (file_exists($file)) {
+    $users = file_get_contents($file);
+    $users = json_decode($users, true);
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        if(isset($_GET['search'])){
+            $users = array_filter($users, function($user){
+                return stripos($user['nume'], $_GET['search']) !== false;
+            });
+        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -27,11 +34,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Acasa</a>
                     </li>
                 </ul>
+                <form class="d-flex" role="search" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Cauta" aria-label="Search" name="search">
+                    <button class="btn btn-outline-secondary" type="submit">Cauta</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -46,7 +57,7 @@
         <div class="row">
             <?php if (isset($_SESSION['success'])): ?>
                 <div class="alert alert-success" role="alert">
-                    <?=$_SESSION['success']?>
+                    <?= $_SESSION['success'] ?>
                 </div>
             <?php endif; ?>
             <?php if (isset($_SESSION['errors'])): ?>
@@ -76,17 +87,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($users as $user): ?>
+                        <?php foreach ($users as $user): ?>
                             <tr>
-                                <td><?=++$i?></td>
-                                <td><?=$user['nume']?></td>
-                                <td><?=$user['email']?></td>
-                                <td><?=$user['domiciliu']?></td>
-                                <td><?=$user['genul']?></td>
-                                <td><?=$user['newsletter']?></td>
+                                <td><?= ++$i ?></td>
+                                <td><?= $user['nume'] ?></td>
+                                <td><?= $user['email'] ?></td>
+                                <td><?= $user['domiciliu'] ?></td>
+                                <td><?= $user['genul'] ?></td>
+                                <td><?= $user['newsletter'] ?></td>
                                 <td>
-                                    <a  href="sterge.php?user=<?=$user['id']?>" 
-                                        class="btn btn-danger btn-sm"
+                                    <a href="sterge.php?user=<?= $user['id'] ?>" class="btn btn-danger btn-sm"
                                         onclick="return confirm('Esti sigur?');">
                                         Sterge
                                     </a>
