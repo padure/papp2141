@@ -7,5 +7,14 @@
         "genul": "Masculin",
         "newsletter": "Da",
         "id": "66fbe0a9d5f0c"
+    },
+    {
+        "nume": "Test Ali",
+        "email": "test@gmail.com",
+        "parola": "$2y$10$IaGsf7egXSHLTTzwP63ztev\/VFPssSU.lHoDYV5oxiz72SvMBtYZ6",
+        "domiciliu": "Cahul",
+        "genul": "Femenin",
+        "newsletter": "Nu",
+        "id": "66fcda7d215ff"
     }
 ]

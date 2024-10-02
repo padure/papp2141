@@ -1,5 +1,12 @@
 <?php
     session_start();
+    $file = "users.json";
+    $users = [];
+    $i = 0;
+    if(file_exists($file)){
+        $users = file_get_contents($file);
+        $users = json_decode($users, true);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -45,7 +52,45 @@
                         <?php endforeach; ?>
                     </ul>
                 </div>
+            <?php session_unset(); ?>
             <?php endif; ?>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Lista utilizatorilor</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nume</th>
+                            <th>Email</th>
+                            <th>Domiciliul</th>
+                            <th>Genul</th>
+                            <th>Abonament</th>
+                            <th>Optiuni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($users as $user): ?>
+                            <tr>
+                                <td><?=++$i?></td>
+                                <td><?=$user['nume']?></td>
+                                <td><?=$user['email']?></td>
+                                <td><?=$user['domiciliu']?></td>
+                                <td><?=$user['genul']?></td>
+                                <td><?=$user['newsletter']?></td>
+                                <td>
+                                    <a  href="sterge.php?user=<?=$user['id']?>" 
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Esti sigur?');">
+                                        Sterge
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="userForm" tabindex="-1" aria-hidden="true">

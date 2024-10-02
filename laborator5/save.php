@@ -18,9 +18,9 @@
         $user['email'] = htmlspecialchars($_POST['email']);
     }
     if(empty($_POST['parola'])){
-        $errors['parola'] = "Campul parola este gol";
+        $errors['parola'] = "Campul parola este gol!";
     }elseif(strlen($_POST['parola']) < 8){
-        $errors['parola'] = "Parola este mai mica de 8 caractere";
+        $errors['parola'] = "Parola este mai mica de 8 caractere!";
     } else{
         $user['parola'] = password_hash($_POST['parola'], PASSWORD_DEFAULT);
     }
