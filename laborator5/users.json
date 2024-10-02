@@ -2,19 +2,19 @@
     {
         "nume": "John Doe",
         "email": "jd@gmail.com",
-        "parola": "$2y$10$sW0hENDBYRRqNyVVKWexFew9ZO0weKAabaFVkwKT3mQR72JP\/k2za",
-        "domiciliu": "Cahul",
+        "parola": "$2y$10$Q05ozbkaVoZUaMEAwpogPuVTu1Vp.wdiTZIK6znAUIhI\/jITw3epS",
+        "domiciliu": "Chisinau",
         "genul": "Masculin",
         "newsletter": "Da",
-        "id": "66fbe0a9d5f0c"
+        "id": "66fce29f49239"
     },
     {
-        "nume": "Test Ali",
+        "nume": "Jenny Doe",
         "email": "test@gmail.com",
-        "parola": "$2y$10$IaGsf7egXSHLTTzwP63ztev\/VFPssSU.lHoDYV5oxiz72SvMBtYZ6",
-        "domiciliu": "Cahul",
+        "parola": "$2y$10$Bo6trw019Qvdb8bYdZBOG.St6cbLIYZyHcZ9qNOJn3MCNZO6.FHgS",
+        "domiciliu": "Chisinau",
         "genul": "Femenin",
-        "newsletter": "Nu",
-        "id": "66fcda7d215ff"
+        "newsletter": "Da",
+        "id": "66fce2ac8bb9e"
     }
 ]

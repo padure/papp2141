@@ -44,6 +44,11 @@
             </div>
         </div>
         <div class="row">
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="alert alert-success" role="alert">
+                    <?=$_SESSION['success']?>
+                </div>
+            <?php endif; ?>
             <?php if (isset($_SESSION['errors'])): ?>
                 <div class="alert alert-danger" role="alert">
                     <ul>
@@ -52,8 +57,8 @@
                         <?php endforeach; ?>
                     </ul>
                 </div>
-            <?php session_unset(); ?>
             <?php endif; ?>
+            <?php session_unset(); ?>
         </div>
         <div class="row">
             <div class="col-md-12">
