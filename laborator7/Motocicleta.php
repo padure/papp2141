@@ -5,7 +5,7 @@
         const COMBUSTIBIL = "Motorina";
         
         public function tipCombustibil(){
-            return COMBUSTIBIL;
+            return self::COMBUSTIBIL;
         }
         public function afiseazaDetalii(){
             return parent::afiseazaDetalii() . " " .$this->tipCombustibil();
