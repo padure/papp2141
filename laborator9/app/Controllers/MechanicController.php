@@ -51,8 +51,20 @@
 
             $old_mechanics->fill($mechanic);
             $old_mechanics->save();
-            
+
             $response->getBody()->write(json_encode(["message" => "Datele au fost actualizate"]));
+            return $response->withHeader('Content-Type', 'application/json');
+        }
+
+        public function delete (Request $request, Response $response, $args){
+            $id = $args['id'];
+            $mechanic = Mechanic::find($id);
+            if(!$mechanic){
+                $response->getBody()->write(json_encode(["message" => "Nu exista"]));
+                return $response->withHeader('Content-Type', 'application/json');
+            }
+            $mechanic->delete();
+            $response->getBody()->write(json_encode(["message" => "Datele au fost sterse!"]));
             return $response->withHeader('Content-Type', 'application/json');
         }
     }
