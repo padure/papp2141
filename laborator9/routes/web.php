@@ -9,4 +9,5 @@
     });
     //Rute mechanics
     $app->get('/mechanics', [MechanicController::class, 'index']);
-    
+    $app->get('/mechanics/{id}', [MechanicController::class, 'show']);
+    $app->post('/mechanics', [MechanicController::class, 'store']);
