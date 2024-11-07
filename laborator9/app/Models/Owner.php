@@ -9,7 +9,7 @@
     {
         protected $table = "owners";
 
-        protected $fillable = ["id", "model", "car_id"];
+        protected $fillable = ["id", "name", "car_id"];
 
         public function cars (): HasMany
         {
