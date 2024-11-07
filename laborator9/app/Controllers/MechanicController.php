@@ -8,7 +8,7 @@
     {
         public function index (Request $request, Response $response, $args)
         {
-            $mechanics = Mechanic::all();
+            $mechanics = Mechanic::with('cars')->get();
             $response->getBody()->write($mechanics->toJson());
             return $response->withHeader('Content-Type', 'application/json');
         }
@@ -28,6 +28,10 @@
         public function store (Request $request, Response $response, $args)
         {
             $mechanic = $request->getParsedBody();
+            if(strlen($mechanic['name']) == 0){
+                $response->getBody()->write(json_encode(["message" => "Verificati datele de intrare!"]));
+                return $response->withHeader('Content-Type', 'application/json');
+            }
             Mechanic::create($mechanic);
             $response->getBody()->write(json_encode(["message" => "Mechanicul a fost adaugat cu succes!"]));
             return $response->withHeader('Content-Type', 'application/json');
