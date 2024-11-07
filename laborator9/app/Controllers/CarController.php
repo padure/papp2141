@@ -9,14 +9,14 @@
     {
         public function index(Request $request, Response $response, $args)
         {
-            $cars = Car::all();
+            $cars = Car::with('mechanic')->get();
             $response->getBody()->write(json_encode($cars));
             return $response->withHeader('Content-Type', 'application/json');
         }
         
         public function show(Request $request, Response $response, $args)
         {
-            $car = Car::find($args['id']);
+            $car = Car::with('mechanic')->find($args['id']);
             if(!$car){
                 $response->getBody()->write(json_encode(["message" => "Nu exista"]));
                 return $response->withHeader('Content-Type', 'application/json');
