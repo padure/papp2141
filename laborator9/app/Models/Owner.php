@@ -2,7 +2,7 @@
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use Illuminate\Database\Eloquent\Relations\HasMany;
+    use Illuminate\Database\Eloquent\Relations\BelongsTo;
     use App\Models\Car;
 
     class Owner extends Model
@@ -11,8 +11,8 @@
 
         protected $fillable = ["id", "name", "car_id"];
 
-        public function cars (): HasMany
+        public function car (): BelongsTo
         {
-            return $this->hasMany(Car::class);
+            return $this->belongsTo(Car::class);
         }
     }

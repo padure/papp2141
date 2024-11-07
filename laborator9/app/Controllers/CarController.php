@@ -16,7 +16,9 @@
         
         public function show(Request $request, Response $response, $args)
         {
-            $car = Car::with('mechanic')->find($args['id']);
+            $car = Car::with('mechanic')
+                        ->with('owner')            
+                        ->find($args['id']);
             if(!$car){
                 $response->getBody()->write(json_encode(["message" => "Nu exista"]));
                 return $response->withHeader('Content-Type', 'application/json');

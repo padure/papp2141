@@ -5,6 +5,7 @@
     use Illuminate\Database\Eloquent\Relations\BelongsTo;
     use App\Models\Mechanic;
     use App\Models\Owner;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
     class Car extends Model
     {
@@ -16,7 +17,7 @@
             return $this->belongsTo(Mechanic::class);
         }
         
-        public function owner ():BelongsTo {
-            return $this->belongsTo(Owner::class);
+        public function owner ():HasOne {
+            return $this->hasOne(Owner::class);
         }
     }
