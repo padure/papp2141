@@ -12,7 +12,8 @@ class ProductController
     {
         $products = Product::all();
         $response->getBody()->write(json_encode($products));
-        return $response->withHeader('Content-Type', 'application/json');
+        return $response->withHeader('Content-Type', 'application/json')
+            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
     }
 
     // Afișarea unui produs specific

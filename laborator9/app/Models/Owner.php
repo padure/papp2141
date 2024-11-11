@@ -8,7 +8,7 @@
     class Owner extends Model
     {
         protected $table = "owners";
-
+        protected $hidden = ['car_id'];
         protected $fillable = ["id", "name", "car_id"];
 
         public function car (): BelongsTo

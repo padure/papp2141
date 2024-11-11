@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
     class Car extends Model
     {
         protected $table = "cars";
-
-        protected $fillable = ["id", "model", "mechanic_id"];
+        protected $hidden = ['mechanic_id'];
+        protected $fillable = ["id", "model"];
 
         public function mechanic ():BelongsTo {
             return $this->belongsTo(Mechanic::class);
