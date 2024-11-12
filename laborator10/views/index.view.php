@@ -32,7 +32,7 @@
     </div>
     </nav>
     <div class="container">
-        <div class="row">
+        <div class="row py-2 justify-content-center h5">
             Lista cartilor
         </div>
         <div class="row">
@@ -47,11 +47,30 @@
                             <th>Description</th>
                             <th>Price</th>
                             <th>Stock</th>
+                            <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($books as $book): ?>
-                        <?php endforeach; ?>
+                        <?php if($books->count() > 0): ?>
+                            <?php foreach($books as $book): ?>
+                                <tr>
+                                    <td><?=$book->id?></td>    
+                                    <td><?=$book->title?></td>    
+                                    <td><?=$book->pages?></td>    
+                                    <td><?=$book->author?></td>    
+                                    <td><?=$book->description?></td>    
+                                    <td><?=$book->price?></td>    
+                                    <td><?=$book->stock?></td>    
+                                    <td>
+                                        
+                                    </td>    
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">There are no books in the system!</td>
+                            </tr>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </div>
