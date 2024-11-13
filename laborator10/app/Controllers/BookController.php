@@ -35,4 +35,14 @@ class BookController
             ->withHeader('Location', '/books')
             ->withStatus(302);
     }
+
+    public function edit(Request $request, Response $response, $args)
+    {
+        $book = Book::find($args['id']);
+        ob_start();
+        require_once __DIR__ . '/../../views/edit.view.php';
+        $html = ob_get_clean();
+        $response->getBody()->write($html);
+        return $response;
+    }
 }

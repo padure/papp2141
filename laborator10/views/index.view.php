@@ -9,7 +9,7 @@
 <body>
     <?php include "../views/nav/nav.php"; ?>
     <div class="container">
-        <div class="row py-2 justify-content-center h5">
+        <div class="row py-3 justify-content-center h5">
             Lista cartilor
         </div>
         <div class="row">
@@ -39,7 +39,8 @@
                                     <td><?=$book->price?></td>    
                                     <td><?=$book->stock?></td>    
                                     <td>
-                                        <a href="/edit" class="btn-warning btn btn-sm">Edit</a>
+                                        <a href="/edit/<?= $book->id; ?>" class="btn-warning btn btn-sm">Edit</a>
+                                        
                                     </td>    
                                 </tr>
                             <?php endforeach; ?>
