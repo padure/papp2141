@@ -27,7 +27,7 @@
                         <p><strong>Stoc:</strong> <?= htmlspecialchars($book->stock) ?></p>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="/books" class="btn btn-secondary">Înapoi</a>
+                        <a href="/books" class="btn btn-dark btn-sm">Înapoi</a>
                     </div>
                 </div>
             </div>
