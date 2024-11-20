@@ -38,9 +38,18 @@
                                     <td><?=$book->description?></td>    
                                     <td><?=$book->price?></td>    
                                     <td><?=$book->stock?></td>    
-                                    <td>
+                                    <td class="d-flex gap-2">
                                         <a href="/edit/<?= $book->id; ?>" class="btn-warning btn btn-sm">Edit</a>
-                                        
+                                        <a href="/show/<?= $book->id; ?>" class="btn btn-info btn-sm">Show</a>
+                                        <form action="/delete/<?= $book->id; ?>" method="post">
+                                            <input type="hidden" name="_METHOD" value="DELETE"/>
+                                            <button 
+                                                type="submit" 
+                                                class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Esti sigur?');">
+                                                Delete
+                                            </button>
+                                        </form>
                                     </td>    
                                 </tr>
                             <?php endforeach; ?>

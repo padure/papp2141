@@ -15,6 +15,7 @@
         <div class="row">
             <div class="col-md-6 m-auto">
                 <form action="/update/<?=$book->id?>" method="post">
+                    <input type="hidden" name="_METHOD" value="PUT"/>
                     <div class="mb-3">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control" value="<?=$book->title?>">

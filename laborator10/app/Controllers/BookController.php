@@ -45,4 +45,34 @@ class BookController
         $response->getBody()->write($html);
         return $response;
     }
+
+    public function update(Request $request, Response $response, $args)
+    {
+        $book = Book::find($args['id']);
+        $data = $request->getParsedBody();
+        $book->fill($data);
+        $book->save();
+        return $response
+            ->withStatus(302)
+            ->withHeader('Location', '/books');
+    }
+
+    public function delete(Request $request, Response $response, $args)
+    {
+        $book = Book::find($args['id']);
+        $book->delete();
+        return $response
+            ->withStatus(302)
+            ->withHeader('Location', '/books');
+    }
+
+    public function show(Request $request, Response $response, $args)
+    {
+        $book = Book::find($args['id']);
+        ob_start();
+        require_once __DIR__ . '/../../views/show.view.php';
+        $html = ob_get_clean();
+        $response->getBody()->write($html);
+        return $response;
+    }
 }
