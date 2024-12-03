@@ -22,7 +22,9 @@ class UpdateBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required',
+            'author' => 'required',
+            'description' => 'required',
         ];
     }
 }

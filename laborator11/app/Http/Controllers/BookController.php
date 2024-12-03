@@ -40,7 +40,7 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show(Book $book):View
     {
         return view('books.show', ['book' => $book]);
     }
@@ -48,9 +48,9 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit(Book $book):View
     {
-        //
+        return view('books.edit', ['book' => $book]);
     }
 
     /**
@@ -58,7 +58,11 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        $book->title        = $request->title;
+        $book->author       = $request->author;
+        $book->description  = $request->description;
+        $book->save();
+        return redirect()->back();
     }
 
     /**
@@ -66,6 +70,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect()->back();
     }
 }
