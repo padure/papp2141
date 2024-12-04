@@ -3,7 +3,10 @@
 @section('title', 'Books Page')
  
 @section('content')
-    <h4>Lista cartilor</h4>
+    <div class="d-flex justify-content-between align-items-center">
+        <h4 class="my-4">Lista cartilor</h4>
+        <a href="{{ route('books.create') }}" class="btn btn-sm btn-dark">Add new</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <th>#</th>
@@ -19,13 +22,13 @@
                     <td>{{ $book->title }}</td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->description }}</td>
-                    <td>
+                    <td class="d-flex gap-2">
                         <a  href="{{ route('books.edit', ['book'=>$book->id]) }}" 
-                            class="btn btn-warning">
+                            class="btn btn-sm btn-warning">
                             Edit
                         </a>
                         <a  href="{{ route('books.show', ['book'=>$book->id]) }}" 
-                            class="btn btn-info">
+                            class="btn btn-sm btn-info">
                             Show
                         </a>
                     </td>
