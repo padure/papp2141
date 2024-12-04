@@ -40,4 +40,5 @@
             @endforelse
         </tbody>
     </table>
+    {{ $books->links() }}
 @endsection

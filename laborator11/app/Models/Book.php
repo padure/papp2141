@@ -9,7 +9,7 @@ class Book extends Model
 {
     /** @use HasFactory<\Database\Factories\BookFactory> */
     use HasFactory;
-
+    const BOOKS_PER_PAGE = 10;
     protected $fillable = ['title', 'author', 'description'];
 
 }

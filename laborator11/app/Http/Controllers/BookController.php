@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index():View
     {
-        $books = Book::all();
+        $books = Book::paginate(Book::BOOKS_PER_PAGE);
         return view('books.index', [
             'books' => $books
         ]);
@@ -34,7 +34,7 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         Book::create($request->all());
-        return redirect()->back();
+        return redirect()->route('books.index');
     }
 
     /**
